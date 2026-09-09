@@ -83,7 +83,7 @@ public:
 	void EnableServerWorkshopItem( PublishedFileId_t id );
 	void OnPublishedFileDetails(RemoteStorageGetPublishedFileDetailsResult_t* pResult, bool bIOFailure);
 	bool m_bWorkshopSetupCompleted;
-	CUtlMap<PublishedFileId_t, int> s_SteamRemoteStorageChecked{DefLessFunc(PublishedFileId_t)};
+	CUtlMap<PublishedFileId_t, int> SteamRemoteStorageChecked{DefLessFunc(PublishedFileId_t)};
 #endif
 
 	PublishedFileId_t FindAddonProvidingFile( const char *pszFileName );

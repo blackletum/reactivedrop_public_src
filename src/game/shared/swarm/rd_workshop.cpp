@@ -2053,9 +2053,9 @@ void CReactiveDropWorkshop::OnPublishedFileDetails(RemoteStorageGetPublishedFile
 		Msg("Remote storage answer for item %llu with timestamp %d\n", id, publishedTimestamp);
 	}
 
-	unsigned short index = s_SteamRemoteStorageChecked.Find(id);
-	if (s_SteamRemoteStorageChecked.IsValidIndex(index)) {
-		uint32 timestamp = s_SteamRemoteStorageChecked.Element(index);
+	unsigned short index = SteamRemoteStorageChecked.Find(id);
+	if (SteamRemoteStorageChecked.IsValidIndex(index)) {
+		uint32 timestamp = SteamRemoteStorageChecked.Element(index);
 
 		if (timestamp != publishedTimestamp) {
 			if (sv_workshop_debug.GetBool()) {
@@ -2111,11 +2111,11 @@ bool CReactiveDropWorkshop::UpdateAndLoadAddon( PublishedFileId_t id, bool bHigh
 #ifndef CLIENT_DLL
 		// the item is reported up-to-date, however steam ugc doesn't report updates correctly
 		// load the addon as normal for now, but chain an additional check
-		unsigned short index = s_SteamRemoteStorageChecked.Find(id);
-		if (!s_SteamRemoteStorageChecked.IsValidIndex(index))
+		unsigned short index = SteamRemoteStorageChecked.Find(id);
+		if (!SteamRemoteStorageChecked.IsValidIndex(index))
 		{
 			// we have not checked this addon, store the ugc timestamp and check it
-			s_SteamRemoteStorageChecked.Insert(id, timeStamp);
+			SteamRemoteStorageChecked.Insert(id, timeStamp);
 
 			SteamAPICall_t hCall = SteamRemoteStorage()->GetPublishedFileDetails(id, 0);
 			m_PublishedFileDetailsCallResult.Set(hCall, this, &CReactiveDropWorkshop::OnPublishedFileDetails);
