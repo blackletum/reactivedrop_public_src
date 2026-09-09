@@ -622,9 +622,7 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 		CGlobalVars *pGlobals)
 {
 
-#ifndef CLIENT_DLL
 	GameServerInit();
-#endif
 
 	COM_TimestampedLog( "ConnectTier1/2/3Libraries - Start" );
 
