@@ -622,7 +622,10 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 		CGlobalVars *pGlobals)
 {
 
+#ifdef RD_NEW_STEAMAPI
+	// only, and only run this on newer steam api's
 	GameServerInit();
+#endif
 
 	COM_TimestampedLog( "ConnectTier1/2/3Libraries - Start" );
 
