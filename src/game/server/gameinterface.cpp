@@ -1466,7 +1466,9 @@ static void OnServerUpdateRequested()
 void CServerGameDLL::Think( bool finalTick )
 {
 	// run callbacks on every tick
+#ifdef RD_NEW_STEAMAPI
 	GameServerCallbacks();
+#endif
 
 	static bool s_bUpdateCheckInit = engine->IsDedicatedServer();
 	if ( s_bUpdateCheckInit )
