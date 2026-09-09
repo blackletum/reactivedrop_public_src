@@ -2109,6 +2109,10 @@ bool CReactiveDropWorkshop::UpdateAndLoadAddon( PublishedFileId_t id, bool bHigh
 		}
 
 #ifndef CLIENT_DLL
+
+#ifdef RD_NEW_STEAMAPI
+		// only run this on newer steamapi, on older ones, it won't work!
+		
 		// the item is reported up-to-date, however steam ugc doesn't report updates correctly
 		// load the addon as normal for now, but chain an additional check
 		unsigned short index = SteamRemoteStorageChecked.Find(id);
@@ -2124,6 +2128,9 @@ bool CReactiveDropWorkshop::UpdateAndLoadAddon( PublishedFileId_t id, bool bHigh
 				Msg("Remote storage check started for item %llu with timestamp %u..\n", id, timeStamp);
 			}
 		}
+
+#endif
+
 #endif
 
 		return LoadAddon( id, false );
