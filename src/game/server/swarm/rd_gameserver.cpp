@@ -78,11 +78,8 @@ bool GameServerInit()
 
 void GameServerCallbacks()
 {
-
-#ifdef RD_NEW_STEAMAPI
 	// steam callbacks
 	SteamGameServer_RunCallbacks();
-#endif
 
 	// this is normally done in engine, but not anymore
 	// we need to put this here
