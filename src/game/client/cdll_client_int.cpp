@@ -2518,9 +2518,6 @@ void OnRenderEnd()
 
 void CHLClient::FrameStageNotify( ClientFrameStage_t curStage )
 {
-	// this needs to run on every frame
-	SteamAPI_RunCallbacks();
-
 	g_CurFrameStage = curStage;
 	g_bEngineIsHLTV = engine->IsHLTV();
 
