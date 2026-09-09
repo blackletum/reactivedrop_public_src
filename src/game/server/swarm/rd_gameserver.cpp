@@ -1,5 +1,6 @@
 #include "cbase.h"
 #include "rd_gameserver.h"
+#include "ws2tcpip.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"

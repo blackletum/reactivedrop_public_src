@@ -5,9 +5,6 @@
 #pragma once
 #endif
 
-#include "cbase.h"
-#include "ws2tcpip.h"
-
 bool GameServerInit();
 void GameServerCallbacks();
 
